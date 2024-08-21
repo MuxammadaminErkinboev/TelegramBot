@@ -1,14 +1,17 @@
 package group.pdp.service;
 
 import group.pdp.model.User;
+import group.pdp.utils.DataUtil;
 
 import java.util.List;
 import java.util.UUID;
 
-public class UserService implements BaseService<User>{
+public class UserService implements BaseService<User> {
+    private static final String USER_DATA_FILE = "C:\\Users\\user\\Desktop\\TelegramBot\\telegramBot\\src\\main\\resources\\users. json";
     @Override
     public User add(User user) {
-        return null;
+        List<User> users = read();
+        return user;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class UserService implements BaseService<User>{
 
     @Override
     public List<User> read() {
-        return List.of();
+        return DataUtil.read(USER_DATA_FILE);
     }
 
     @Override
